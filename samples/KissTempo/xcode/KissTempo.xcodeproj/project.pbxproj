@@ -13,12 +13,12 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		432CD3D014E740EF00603749 /* KissFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3CE14E740EF00603749 /* KissFFT.cpp */; };
-		432CD3D614E740F800603749 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3D214E740F800603749 /* kiss_fft.c */; };
-		432CD3D714E740F800603749 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3D414E740F800603749 /* kiss_fftr.c */; };
-		43C168EC14E7B3680016D7C4 /* KissTempoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43C168EB14E7B3680016D7C4 /* KissTempoApp.cpp */; };
-		43C168F014E7B38E0016D7C4 /* Copy1066.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43C168EE14E7B38E0016D7C4 /* Copy1066.ttf */; };
-		43C168F114E7B38E0016D7C4 /* lgo_machismo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43C168EF14E7B38E0016D7C4 /* lgo_machismo.mp3 */; };
+		43DFF4EE14F21C96004759F2 /* Copy1066.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43DFF4EC14F21C96004759F2 /* Copy1066.ttf */; };
+		43DFF4EF14F21C96004759F2 /* lgo_machismo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */; };
+		43DFF4F114F21C9D004759F2 /* KissTempoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */; };
+		43DFF4F414F21CAB004759F2 /* KissFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F214F21CAB004759F2 /* KissFFT.cpp */; };
+		43DFF4FA14F21CB3004759F2 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F614F21CB3004759F2 /* kiss_fft.c */; };
+		43DFF4FB14F21CB3004759F2 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F814F21CB3004759F2 /* kiss_fftr.c */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -37,17 +37,17 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* KissTempo_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KissTempo_Prefix.pch; sourceTree = "<group>"; };
-		432CD3CE14E740EF00603749 /* KissFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissFFT.cpp; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/KissFFT.cpp; sourceTree = DEVELOPER_DIR; };
-		432CD3CF14E740EF00603749 /* KissFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KissFFT.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/KissFFT.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D114E740F800603749 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _kiss_fft_guts.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/_kiss_fft_guts.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D214E740F800603749 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fft.c; sourceTree = DEVELOPER_DIR; };
-		432CD3D314E740F800603749 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fft.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fft.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D414E740F800603749 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fftr.c; sourceTree = DEVELOPER_DIR; };
-		432CD3D514E740F800603749 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fftr.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fftr.h; sourceTree = DEVELOPER_DIR; };
-		43C168EB14E7B3680016D7C4 /* KissTempoApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissTempoApp.cpp; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/samples/KissTempo/src/KissTempoApp.cpp; sourceTree = DEVELOPER_DIR; };
-		43C168ED14E7B3740016D7C4 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/samples/KissTempo/include/Resources.h; sourceTree = DEVELOPER_DIR; };
-		43C168EE14E7B38E0016D7C4 /* Copy1066.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Copy1066.ttf; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/samples/KissTempo/resources/Copy1066.ttf; sourceTree = DEVELOPER_DIR; };
-		43C168EF14E7B38E0016D7C4 /* lgo_machismo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lgo_machismo.mp3; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/samples/KissTempo/resources/lgo_machismo.mp3; sourceTree = DEVELOPER_DIR; };
+		43DFF4EB14F21C8F004759F2 /* Resources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = ../include/Resources.h; sourceTree = "<group>"; };
+		43DFF4EC14F21C96004759F2 /* Copy1066.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Copy1066.ttf; path = ../resources/Copy1066.ttf; sourceTree = "<group>"; };
+		43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lgo_machismo.mp3; path = ../resources/lgo_machismo.mp3; sourceTree = "<group>"; };
+		43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissTempoApp.cpp; path = ../src/KissTempoApp.cpp; sourceTree = "<group>"; };
+		43DFF4F214F21CAB004759F2 /* KissFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissFFT.cpp; path = ../../../src/KissFFT.cpp; sourceTree = "<group>"; };
+		43DFF4F314F21CAB004759F2 /* KissFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; name = KissFFT.h; path = ../../../src/KissFFT.h; sourceTree = "<group>"; };
+		43DFF4F514F21CB3004759F2 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; name = _kiss_fft_guts.h; path = ../../../src/kiss/_kiss_fft_guts.h; sourceTree = "<group>"; };
+		43DFF4F614F21CB3004759F2 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = ../../../src/kiss/kiss_fft.c; sourceTree = "<group>"; };
+		43DFF4F714F21CB3004759F2 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fft.h; path = ../../../src/kiss/kiss_fft.h; sourceTree = "<group>"; };
+		43DFF4F814F21CB3004759F2 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = ../../../src/kiss/kiss_fftr.c; sourceTree = "<group>"; };
+		43DFF4F914F21CB3004759F2 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fftr.h; path = ../../../src/kiss/kiss_fftr.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -79,8 +79,8 @@
 		0026CD271197C285007D86C6 /* KissFFT */ = {
 			isa = PBXGroup;
 			children = (
-				432CD3CE14E740EF00603749 /* KissFFT.cpp */,
-				432CD3CF14E740EF00603749 /* KissFFT.h */,
+				43DFF4F214F21CAB004759F2 /* KissFFT.cpp */,
+				43DFF4F314F21CAB004759F2 /* KissFFT.h */,
 				432CD3CD14E740DD00603749 /* kiss */,
 			);
 			name = KissFFT;
@@ -89,7 +89,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				43C168EB14E7B3680016D7C4 /* KissTempoApp.cpp */,
+				43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */,
 				0026CD271197C285007D86C6 /* KissFFT */,
 			);
 			name = Source;
@@ -145,7 +145,7 @@
 		29B97315FDCFA39411CA2CEA /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				43C168ED14E7B3740016D7C4 /* Resources.h */,
+				43DFF4EB14F21C8F004759F2 /* Resources.h */,
 				32CA4F630368D1EE00C91783 /* KissTempo_Prefix.pch */,
 			);
 			name = Headers;
@@ -154,8 +154,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				43C168EE14E7B38E0016D7C4 /* Copy1066.ttf */,
-				43C168EF14E7B38E0016D7C4 /* lgo_machismo.mp3 */,
+				43DFF4EC14F21C96004759F2 /* Copy1066.ttf */,
+				43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 			);
 			name = Resources;
@@ -173,11 +173,11 @@
 		432CD3CD14E740DD00603749 /* kiss */ = {
 			isa = PBXGroup;
 			children = (
-				432CD3D114E740F800603749 /* _kiss_fft_guts.h */,
-				432CD3D214E740F800603749 /* kiss_fft.c */,
-				432CD3D314E740F800603749 /* kiss_fft.h */,
-				432CD3D414E740F800603749 /* kiss_fftr.c */,
-				432CD3D514E740F800603749 /* kiss_fftr.h */,
+				43DFF4F514F21CB3004759F2 /* _kiss_fft_guts.h */,
+				43DFF4F614F21CB3004759F2 /* kiss_fft.c */,
+				43DFF4F714F21CB3004759F2 /* kiss_fft.h */,
+				43DFF4F814F21CB3004759F2 /* kiss_fftr.c */,
+				43DFF4F914F21CB3004759F2 /* kiss_fftr.h */,
 			);
 			name = kiss;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43C168F014E7B38E0016D7C4 /* Copy1066.ttf in Resources */,
-				43C168F114E7B38E0016D7C4 /* lgo_machismo.mp3 in Resources */,
+				43DFF4EE14F21C96004759F2 /* Copy1066.ttf in Resources */,
+				43DFF4EF14F21C96004759F2 /* lgo_machismo.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +244,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				432CD3D014E740EF00603749 /* KissFFT.cpp in Sources */,
-				432CD3D614E740F800603749 /* kiss_fft.c in Sources */,
-				432CD3D714E740F800603749 /* kiss_fftr.c in Sources */,
-				43C168EC14E7B3680016D7C4 /* KissTempoApp.cpp in Sources */,
+				43DFF4F114F21C9D004759F2 /* KissTempoApp.cpp in Sources */,
+				43DFF4F414F21CAB004759F2 /* KissFFT.cpp in Sources */,
+				43DFF4FA14F21CB3004759F2 /* kiss_fft.c in Sources */,
+				43DFF4FB14F21CB3004759F2 /* kiss_fftr.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

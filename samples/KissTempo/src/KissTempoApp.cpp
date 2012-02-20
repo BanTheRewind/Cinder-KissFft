@@ -335,7 +335,7 @@ void KissTempoApp::update()
 				}
 
 				// Determine tempo based on average peak distance
-				mTempo = total > 0 ? ( 44100.0f / ((float)total / (float)mPeakDistances.size() ) ) * 60.0f / 1000.0f : 0.0f;
+				mTempo = total > 0 ? ( 44100.0f / ( (float)total / (float)mPeakDistances.size() ) ) * 60.0f / 1000.0f : 0.0f;
 
 			}
 

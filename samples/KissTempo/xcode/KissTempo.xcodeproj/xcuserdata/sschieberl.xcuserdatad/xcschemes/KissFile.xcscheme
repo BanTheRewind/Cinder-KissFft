@@ -14,7 +14,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8D1107260486CEB800E47090"
-               BuildableName = "KissFile.app"
+               BuildableName = "KissTempo.app"
                BlueprintName = "KissTempo"
                ReferencedContainer = "container:KissTempo.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "KissFile.app"
+            BuildableName = "KissTempo.app"
             BlueprintName = "KissTempo"
             ReferencedContainer = "container:KissTempo.xcodeproj">
          </BuildableReference>
@@ -50,7 +50,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "KissFile.app"
+            BuildableName = "KissTempo.app"
             BlueprintName = "KissTempo"
             ReferencedContainer = "container:KissTempo.xcodeproj">
          </BuildableReference>
@@ -68,7 +68,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8D1107260486CEB800E47090"
-            BuildableName = "KissFile.app"
+            BuildableName = "KissTempo.app"
             BlueprintName = "KissTempo"
             ReferencedContainer = "container:KissTempo.xcodeproj">
          </BuildableReference>

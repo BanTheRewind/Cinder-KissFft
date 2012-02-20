@@ -13,10 +13,10 @@
 		00B784B40FF439BC000DE1D7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B00FF439BC000DE1D7 /* AudioToolbox.framework */; };
 		00B784B50FF439BC000DE1D7 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B10FF439BC000DE1D7 /* AudioUnit.framework */; };
 		00B784B60FF439BC000DE1D7 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B784B20FF439BC000DE1D7 /* CoreAudio.framework */; };
-		432CD3D014E740EF00603749 /* KissFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3CE14E740EF00603749 /* KissFFT.cpp */; };
-		432CD3D614E740F800603749 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3D214E740F800603749 /* kiss_fft.c */; };
-		432CD3D714E740F800603749 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3D414E740F800603749 /* kiss_fftr.c */; };
-		432CD3D914E7418B00603749 /* KissBasicApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 432CD3D814E7418B00603749 /* KissBasicApp.cpp */; };
+		43DFF4C214F21B6F004759F2 /* KissBasicApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4C114F21B6F004759F2 /* KissBasicApp.cpp */; };
+		43DFF4C514F21B7E004759F2 /* KissFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4C314F21B7E004759F2 /* KissFFT.cpp */; };
+		43DFF4CB14F21B86004759F2 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4C714F21B86004759F2 /* kiss_fft.c */; };
+		43DFF4CC14F21B86004759F2 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4C914F21B86004759F2 /* kiss_fftr.c */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
@@ -35,14 +35,14 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* KissBasic_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KissBasic_Prefix.pch; sourceTree = "<group>"; };
-		432CD3CE14E740EF00603749 /* KissFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissFFT.cpp; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/KissFFT.cpp; sourceTree = DEVELOPER_DIR; };
-		432CD3CF14E740EF00603749 /* KissFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KissFFT.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/KissFFT.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D114E740F800603749 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _kiss_fft_guts.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/_kiss_fft_guts.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D214E740F800603749 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fft.c; sourceTree = DEVELOPER_DIR; };
-		432CD3D314E740F800603749 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fft.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fft.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D414E740F800603749 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fftr.c; sourceTree = DEVELOPER_DIR; };
-		432CD3D514E740F800603749 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kiss_fftr.h; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/src/kiss/kiss_fftr.h; sourceTree = DEVELOPER_DIR; };
-		432CD3D814E7418B00603749 /* KissBasicApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissBasicApp.cpp; path = Cinder/cinder_0.8.3_mac/blocks/KissFFT/samples/KissBasic/src/KissBasicApp.cpp; sourceTree = DEVELOPER_DIR; };
+		43DFF4C114F21B6F004759F2 /* KissBasicApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissBasicApp.cpp; path = ../src/KissBasicApp.cpp; sourceTree = "<group>"; };
+		43DFF4C314F21B7E004759F2 /* KissFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissFFT.cpp; path = ../../../src/KissFFT.cpp; sourceTree = "<group>"; };
+		43DFF4C414F21B7E004759F2 /* KissFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KissFFT.h; path = ../../../src/KissFFT.h; sourceTree = "<group>"; };
+		43DFF4C614F21B86004759F2 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = _kiss_fft_guts.h; path = ../../../src/kiss/_kiss_fft_guts.h; sourceTree = "<group>"; };
+		43DFF4C714F21B86004759F2 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = ../../../src/kiss/kiss_fft.c; sourceTree = "<group>"; };
+		43DFF4C814F21B86004759F2 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fft.h; path = ../../../src/kiss/kiss_fft.h; sourceTree = "<group>"; };
+		43DFF4C914F21B86004759F2 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = ../../../src/kiss/kiss_fftr.c; sourceTree = "<group>"; };
+		43DFF4CA14F21B86004759F2 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fftr.h; path = ../../../src/kiss/kiss_fftr.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -74,8 +74,8 @@
 		0026CD271197C285007D86C6 /* KissFFT */ = {
 			isa = PBXGroup;
 			children = (
-				432CD3CE14E740EF00603749 /* KissFFT.cpp */,
-				432CD3CF14E740EF00603749 /* KissFFT.h */,
+				43DFF4C314F21B7E004759F2 /* KissFFT.cpp */,
+				43DFF4C414F21B7E004759F2 /* KissFFT.h */,
 				432CD3CD14E740DD00603749 /* kiss */,
 			);
 			name = KissFFT;
@@ -84,7 +84,7 @@
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				432CD3D814E7418B00603749 /* KissBasicApp.cpp */,
+				43DFF4C114F21B6F004759F2 /* KissBasicApp.cpp */,
 				0026CD271197C285007D86C6 /* KissFFT */,
 			);
 			name = Source;
@@ -165,11 +165,11 @@
 		432CD3CD14E740DD00603749 /* kiss */ = {
 			isa = PBXGroup;
 			children = (
-				432CD3D114E740F800603749 /* _kiss_fft_guts.h */,
-				432CD3D214E740F800603749 /* kiss_fft.c */,
-				432CD3D314E740F800603749 /* kiss_fft.h */,
-				432CD3D414E740F800603749 /* kiss_fftr.c */,
-				432CD3D514E740F800603749 /* kiss_fftr.h */,
+				43DFF4C614F21B86004759F2 /* _kiss_fft_guts.h */,
+				43DFF4C714F21B86004759F2 /* kiss_fft.c */,
+				43DFF4C814F21B86004759F2 /* kiss_fft.h */,
+				43DFF4C914F21B86004759F2 /* kiss_fftr.c */,
+				43DFF4CA14F21B86004759F2 /* kiss_fftr.h */,
 			);
 			name = kiss;
 			sourceTree = "<group>";
@@ -234,10 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				432CD3D014E740EF00603749 /* KissFFT.cpp in Sources */,
-				432CD3D614E740F800603749 /* kiss_fft.c in Sources */,
-				432CD3D714E740F800603749 /* kiss_fftr.c in Sources */,
-				432CD3D914E7418B00603749 /* KissBasicApp.cpp in Sources */,
+				43DFF4C214F21B6F004759F2 /* KissBasicApp.cpp in Sources */,
+				43DFF4C514F21B7E004759F2 /* KissFFT.cpp in Sources */,
+				43DFF4CB14F21B86004759F2 /* kiss_fft.c in Sources */,
+				43DFF4CC14F21B86004759F2 /* kiss_fftr.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
