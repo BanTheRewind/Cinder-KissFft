@@ -55,6 +55,7 @@ public:
 	void	draw();
 	void	mouseMove( ci::app::MouseEvent event );
 	void	setup();
+	void	shutdown();
 	void	sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, ci::audio::Buffer32f * ioBuffer );
 
 private:
@@ -68,7 +69,6 @@ private:
 	float	mMinFreq;
 
 	// Analyzer
-	bool	mFftInit;
 	KissRef mFft;
 
 };
@@ -86,7 +86,7 @@ void KissBasicApp::draw()
 	gl::clear( ColorAf::black() );
 
 	// Check init flag
-	if ( mFftInit ) {
+	if ( mFft ) {
 
 		// Get data in the frequency (transformed) and time domains
 		float * freqData = mFft->getAmplitude();
@@ -165,9 +165,14 @@ void KissBasicApp::setup()
 	// Play sine
 	audio::Output::play( audio::createCallback( this, & KissBasicApp::sineWave ) );
 
-	// Set initialization flag
-	mFftInit = false;
+}
 
+// Called on exit
+void KissBasicApp::shutdown()
+{
+	if ( mFft ) {
+		mFft->stop();
+	}
 }
 
 // Creates sine wave
@@ -185,8 +190,7 @@ void KissBasicApp::sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, au
 	}
 
 	// Initialize analyzer
-	if ( !mFftInit ) {
-		mFftInit = true;
+	if ( !mFft ) {
 		mFft = Kiss::create( ioSampleCount );
 	}
 

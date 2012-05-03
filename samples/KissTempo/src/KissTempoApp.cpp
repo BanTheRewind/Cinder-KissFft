@@ -62,7 +62,6 @@
  * "Conversations With My Invisible Friends"
  * (c) 2009 Soma Quality Recordsings
  * 
- * http://www.letsgooutside.com/
  * http://www.somarecords.com/
  * 
  */
@@ -75,6 +74,7 @@ public:
 	void draw();
 	void keyDown( ci::app::KeyEvent event );
 	void setup();
+	void shutdown();
 	void update();
 
 private:
@@ -83,7 +83,7 @@ private:
 	// needed to evaluate a peak. Higher numbers are better for 
 	// more complex music.
 #ifdef CINDER_MSW
-    static const int32_t DEFAULT_NEIGHBOR_COUNT = 6;
+    static const int32_t DEFAULT_NEIGHBOR_COUNT = 4;
 #else
 	static const int32_t DEFAULT_NEIGHBOR_COUNT = 2;
 #endif
@@ -95,7 +95,6 @@ private:
 
 	// Analyzer
 	KissRef						mFft;
-	bool						mFftInit;
 
 	// Data
 	int32_t						mDataSize;
@@ -123,31 +122,6 @@ private:
 using namespace ci;
 using namespace ci::app;
 using namespace std;
-
-// Play the track
-void KissTempoApp::playTrack()
-{
-
-	// Stop current track
-	if ( mTrack ) {
-		mTrack->enablePcmBuffering( false );
-		mTrack->stop();
-		mTrack.reset();
-	}
-
-	// Reset values
-	mFirstPeak = -1;
-	mNeighbors = DEFAULT_NEIGHBOR_COUNT;
-	mPeakDistances.clear();
-	mSampleDistance = 0;
-	mTempo = 0.0f;
-
-	// Play track
-	mTrack = audio::Output::addTrack( audio::load( loadResource( RES_SAMPLE ) ), false );
-	mTrack->enablePcmBuffering( true );
-	mTrack->play();
-
-}
 
 // Draw
 void KissTempoApp::draw()
@@ -202,6 +176,31 @@ void KissTempoApp::keyDown( KeyEvent event )
 
 }
 
+// Play the track
+void KissTempoApp::playTrack()
+{
+
+	// Stop current track
+	if ( mTrack ) {
+		mTrack->enablePcmBuffering( false );
+		mTrack->stop();
+		mTrack.reset();
+	}
+
+	// Reset values
+	mFirstPeak = -1;
+	mNeighbors = DEFAULT_NEIGHBOR_COUNT;
+	mPeakDistances.clear();
+	mSampleDistance = 0;
+	mTempo = 0.0f;
+
+	// Play track
+	mTrack = audio::Output::addTrack( audio::load( loadResource( RES_SAMPLE ) ), false );
+	mTrack->enablePcmBuffering( true );
+	mTrack->play();
+
+}
+
 // Set up
 void KissTempoApp::setup()
 {
@@ -220,7 +219,6 @@ void KissTempoApp::setup()
 	// Define properties
 	mDataSize = 0;
 	mFirstPeak = -1;
-	mFftInit = false;
 	mInputSize = 0;
 	mNeighbors = DEFAULT_NEIGHBOR_COUNT;
 	mPeakDistances.clear();
@@ -233,6 +231,19 @@ void KissTempoApp::setup()
 
 	// Load sample
 	playTrack();
+
+}
+
+// Called on exit
+void KissTempoApp::shutdown() 
+{
+
+	// Stop track
+	mTrack->enablePcmBuffering( false );
+	mTrack->stop();
+	if ( mFft ) {
+		mFft->stop();
+	}
 
 }
 
@@ -258,10 +269,9 @@ void KissTempoApp::update()
 			if ( sampleCount > 0 ) {
 
 				// Kiss is not initialized
-				if ( !mFftInit ) {
+				if ( !mFft ) {
 
 					// Initialize analyzer
-					mFftInit = true;
 					mFft = Kiss::create( sampleCount );
 
 					// Set filter on FFT to calculate tempo based on beats

@@ -50,7 +50,6 @@
  * the album "Conversations With My Invisible Friends"
  * (c) 2009 Soma Quality Recordsings
  * 
- * http://www.letsgooutside.com/
  * http://www.somarecords.com/
  * 
  */
@@ -74,7 +73,6 @@ private:
 
 	// Analyzer
 	KissRef						mFft;
-	bool						mFftInit;
 
 };
 
@@ -90,7 +88,7 @@ void KissFileApp::draw()
 	gl::clear( ColorAf::black() );
 
 	// Check init flag
-	if ( mFftInit ) {
+	if ( mFft ) {
 
 		// Get data in the frequency (transformed) and time domains
 		float * freqData = mFft->getAmplitude();
@@ -149,9 +147,6 @@ void KissFileApp::setup()
 	mTrack->enablePcmBuffering( true );
 	mTrack->play();
 
-	// Set initialization flag
-	mFftInit = false;
-
 }
 
 // Called on exit
@@ -161,6 +156,9 @@ void KissFileApp::shutdown()
 	// Stop track
 	mTrack->enablePcmBuffering( false );
 	mTrack->stop();
+	if ( mFft ) {
+		mFft->stop();
+	}
 
 }
 
@@ -180,8 +178,7 @@ void KissFileApp::update()
 			if ( sampleCount > 0 ) {
 
 				// Initialize analyzer
-				if ( !mFftInit ) {
-					mFftInit = true;
+				if ( !mFft ) {
 					mFft = Kiss::create( sampleCount );
 				}
 
