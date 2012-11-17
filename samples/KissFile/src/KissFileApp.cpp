@@ -123,7 +123,6 @@ void KissFileApp::draw()
 		// Draw signals
 		gl::draw( freqLine );
 		gl::draw( timeLine );
-
 	}
 
 }

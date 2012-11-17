@@ -50,24 +50,20 @@ KissRef Kiss::create( int32_t dataSize )
 // Constructor
 Kiss::Kiss( int32_t dataSize )
 {
-
 	// Set running flag
 	mRunning = true;
 
 	// Set data size
 	mDataSize = dataSize;
 	setDataSize( dataSize );
-
 }
 
 // Destructor
 Kiss::~Kiss()
 {
-
 	// Clean up
 	stop();
     dispose();
-
 }
 
 // Polarize cartesian values
@@ -82,18 +78,10 @@ void Kiss::cartesianToPolar()
 
 		// Find absolute maximums of and angles between values
 		// and use them to set the amplitude and phase data, respectively
-#ifdef CINDER_MSW
-        Concurrency::parallel_for( 0, mBinSize, [ = ]( int32_t i ) {
-#else
-        for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
+        for ( int32_t i = 0; i < mBinSize; ++i ) {
             mAmplitude[ i ] = math<float>::sqrt( math<float>::pow( mReal[ i ], 2 ) + math<float>::pow( mImag[ i ], 2 ) );
             mPhase[ i ] = math<float>::atan2( mImag[ i ], mReal[ i ] );
-#ifdef CINDER_MSW
-        } );
-#else
 		}
-#endif
 
 		// Set flags
         mPolarUpdated = true;
@@ -106,17 +94,9 @@ void Kiss::cartesianToPolar()
 
 		// Normalize values
         float mNormalizer = 2.0f / mWindowSum;
-#ifdef CINDER_MSW
-		Concurrency::parallel_for( 0, mBinSize, [ = ]( int32_t i ) {
-#else
-        for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
+        for ( int32_t i = 0; i < mBinSize; ++i ) {
             mAmplitude[ i ] *= mNormalizer;
-#ifdef CINDER_MSW
-		} );
-#else
 		}
-#endif
         mPolarNormalized = true;
 
     }
@@ -126,7 +106,6 @@ void Kiss::cartesianToPolar()
 // Free resources
 void Kiss::dispose()
 {
-
 	// Free KISS resources
 	if ( mFftCfg ) {
 		kiss_fftr_free( mFftCfg );
@@ -172,17 +151,14 @@ void Kiss::dispose()
 // Returns array of amplitudes in frequency domain
 float* Kiss::getAmplitude()
 {
-
 	// Prepare and return amplitude data
     cartesianToPolar();
     return mAmplitude;
-
 }
 
 // Get input data
-float * Kiss::getData()
+float* Kiss::getData()
 {
-
 	// Data has not been updated
     if ( !mDataUpdated ) {
 
@@ -190,32 +166,16 @@ float * Kiss::getData()
         transform();
 
 		// Perform inverse FFT
-#ifdef CINDER_MSW
-		Concurrency::parallel_for( 0, mBinSize, [ = ]( int32_t i ) {
-#else
-        for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
+        for ( int32_t i = 0; i < mBinSize; ++i ) {
             mCxIn[ i ].r = mReal[ i ];
             mCxIn[ i ].i = mImag[ i ];
-#ifdef CINDER_MSW
-		} );
-#else
 		}
-#endif
         kiss_fftri( mIfftCfg, mCxIn, mData );
 
 		// Populate data array
-#ifdef CINDER_MSW
-		Concurrency::parallel_for( 0, mDataSize, [ = ]( int32_t i ) {
-#else
-		for ( int32_t i = 0; i < mDataSize; i++ ) {
-#endif
-            mData[ i ] *= mInverseWindow[i];
-#ifdef CINDER_MSW
-		} );
-#else
+		for ( int32_t i = 0; i < mDataSize; ++i ) {
+            mData[ i ] *= mInverseWindow[ i ];
 		}
-#endif
 
 		// Update flags
         mDataUpdated = true;
@@ -229,17 +189,9 @@ float * Kiss::getData()
 
         // Normalize data
         float mNormalizer = (float)mWindowSum / (float)( 2 * mDataSize );
-#ifdef CINDER_MSW
-		Concurrency::parallel_for( 0, mDataSize, [ = ]( int32_t i ) {
-#else
-		for ( int32_t i = 0; i < mDataSize; i++ ) {
-#endif
+		for ( int32_t i = 0; i < mDataSize; ++i ) {
             mData[ i ] *= mNormalizer;
-#ifdef CINDER_MSW
-		} );
-#else
 		}
-#endif
         mDataNormalized = true;
 
     }
@@ -250,39 +202,37 @@ float * Kiss::getData()
 }
 
 // Returns array of phase values in frequency domain
-float * Kiss::getPhase()
+float* Kiss::getPhase()
 {
-
 	// Prepare and return phase data
     cartesianToPolar();
     return mPhase;
-
 }
 
 // Returns array of real part of complex values
-float * Kiss::getReal()
+float* Kiss::getReal()
 {
-
 	// Perform FFT and return real data
     transform();
     return mReal;
-
 }
 
 // Returns array of imaginary part of complex values
-float * Kiss::getImaginary()
+float* Kiss::getImaginary()
 {
-
 	// Perform FFT and return imaginary data
     transform();
     return mImag;
+}
 
+void Kiss::removeFilter()
+{
+	setFilter( 0.0f, Filter::NONE );
 }
 
 // Send signal to KISS
-void Kiss::setData( float * data )
+void Kiss::setData( float *data )
 {
-
     // Set all flags to false
     mCartesianUpdated = false;
     mPolarUpdated = false;
@@ -297,43 +247,41 @@ void Kiss::setData( float * data )
 	// Set data flag
     mDataUpdated = true;
     mDataNormalized = true;
-
 }
 
 // Set data size
 void Kiss::setDataSize( int32_t dataSize )
 {
-
-	// Dispose is size has changed
+	// Dispose if size has changed
 	if ( dataSize != mDataSize ) {
 		dispose();
 	}
 
 	// Set dimensions
-    mDataSize = dataSize;
-    mBinSize = ( mDataSize / 2 ) + 1;
-	mWindowSum = 0.0f;
+    mDataSize	= dataSize;
+    mBinSize	= ( mDataSize / 2 ) + 1;
+	mWindowSum	= 0.0f;
     
 	// Set flags
-    mCartesianNormalized = true;
-	mCartesianUpdated = true;
-	mDataNormalized = true;
-    mPolarNormalized = true;
-	mPolarUpdated = true;
+    mCartesianNormalized	= true;
+	mCartesianUpdated		= true;
+	mDataNormalized			= true;
+    mPolarNormalized		= true;
+	mPolarUpdated			= true;
 
     // Allocate arrays
-    mAmplitude = new float[ mBinSize ];
-	mData = new float[ mDataSize ];
-	mImag = new float[ mBinSize ];
-	mInverseWindow = new float[ mDataSize ];
-	mReal = new float[ mBinSize ];
-    mPhase = new float[ mBinSize ];
-	mWindow = new float[ mDataSize ];
-	mWindowedData = new float[ mDataSize ];
+    mAmplitude		= new float[ mBinSize ];
+	mData			= new float[ mDataSize ];
+	mImag			= new float[ mBinSize ];
+	mInverseWindow	= new float[ mDataSize ];
+	mReal			= new float[ mBinSize ];
+    mPhase			= new float[ mBinSize ];
+	mWindow			= new float[ mDataSize ];
+	mWindowedData	= new float[ mDataSize ];
 
 	// Set frequencies
-	mFrequencyHigh = 1.0f;
-	mFrequencyLow = 0.0f;
+	mFrequencyHigh	= 1.0f;
+	mFrequencyLow	= 0.0f;
 
     // Initialize array values
     memset( mData, 0, sizeof( float ) * mDataSize );
@@ -341,32 +289,22 @@ void Kiss::setDataSize( int32_t dataSize )
     memset( mImag, 0, sizeof( float ) * mBinSize );
     memset( mAmplitude, 0, sizeof( float ) * mBinSize );
     memset( mPhase, 0, sizeof( float ) * mBinSize );
-#ifdef CINDER_MSW
-	Concurrency::parallel_for( 0, mDataSize, [ = ]( int32_t i ) {
-#else
-	for ( int32_t i = 0; i < mDataSize; i++ ) {
-#endif
+	for ( int32_t i = 0; i < mDataSize; ++i ) {
         mWindow[ i ] = math<float>::sin( ( (float)M_PI * i) / ( mDataSize - 1 ) );
         mWindowSum += mWindow[ i ];
         mInverseWindow[ i ] = 1.0f / mWindow[ i ];
-#ifdef CINDER_MSW
-	} );
-#else
 	}
-#endif
 
 	// Set up KISS
-    mFftCfg = kiss_fftr_alloc( mDataSize, 0, 0, 0 );
-    mIfftCfg = kiss_fftr_alloc( mDataSize, 1, 0, 0 );
-    mCxIn = new kiss_fft_cpx[ mBinSize ];
-    mCxOut = new kiss_fft_cpx[ mBinSize ];
-
+    mFftCfg		= kiss_fftr_alloc( mDataSize, 0, 0, 0 );
+    mIfftCfg	= kiss_fftr_alloc( mDataSize, 1, 0, 0 );
+    mCxIn		= new kiss_fft_cpx[ mBinSize ];
+    mCxOut		= new kiss_fft_cpx[ mBinSize ];
 }
 
 // Set filter
 void Kiss::setFilter( float frequency, int32_t filter )
 {
-
 	// Set low and high frequencies based on filter type
 	switch ( filter ) {
 	case Filter::HIGH_PASS:
@@ -382,32 +320,26 @@ void Kiss::setFilter( float frequency, int32_t filter )
 		setFilter( frequency, frequency );
 		break;
 	}
-
 }
 
 // Set band pass filter
 void Kiss::setFilter( float lowFrequency, float highFrequency )
 {
-
 	// Set frequencies
 	mFrequencyLow = lowFrequency;
 	mFrequencyHigh = highFrequency;
-
 }
 
 // Stop running
 void Kiss::stop()
 {
-
 	// Turn off flag (prevents crash on exit)
 	mRunning = false;
-
 }
 
 // Performs FFT
 void Kiss::transform()
 {
-
 	// Check flag
 	if ( !mRunning ) {
 		return;
@@ -421,27 +353,15 @@ void Kiss::transform()
 
 			// Copy data to windowed array
             memcpy( mWindowedData, mData, sizeof(float) * mDataSize );
-#ifdef CINDER_MSW
-			Concurrency::parallel_for( 0, mDataSize, [ = ]( int32_t i ) {
-#else
-			for ( int32_t i = 0; i < mDataSize; i++ ) {
-#endif
-                mWindowedData[i] = mData[ i ] * mWindow[ i ];
-#ifdef CINDER_MSW
-			} );
-#else
+			for ( int32_t i = 0; i < mDataSize; ++i ) {
+                mWindowedData[ i ] = mData[ i ] * mWindow[ i ];
 			}
-#endif
 
 			// Perform FFT
             kiss_fftr( mFftCfg, mWindowedData, mCxOut );
 
 			// Iterate through complex values
-#ifdef CINDER_MSW
-			Concurrency::parallel_for( 0, mBinSize, [ = ]( int32_t i ) {
-#else
-			for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
+			for ( int32_t i = 0; i < mBinSize; ++i ) {
 
 				// Bail if running flag turns off
 				if ( !mRunning ) {
@@ -455,11 +375,7 @@ void Kiss::transform()
 				mReal[ i ] = mApplyComlex ? mCxOut[ i ].r : 0.0f;
 				mImag[ i ] = mApplyComlex ? mCxOut[ i ].i : 0.0f;
 
-#ifdef CINDER_MSW
-			} );
-#else
 			}
-#endif
 
 			// Update flag
             mCartesianUpdated = true;
@@ -467,18 +383,10 @@ void Kiss::transform()
         } else {
 
 			// Apply phase and amplitude to values
-#ifdef CINDER_MSW
-			Concurrency::parallel_for( 0, mBinSize, [ = ]( int32_t i ) {
-#else
-			for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
-                mReal[ i ] = math<float>::cos( mPhase[i] ) * mAmplitude[ i ];
-                mImag[ i ] = math<float>::sin( mPhase[i] ) * mAmplitude[ i ];
-#ifdef CINDER_MSW
-			} );
-#else
+			for ( int32_t i = 0; i < mBinSize; ++i ) {
+                mReal[ i ] = math<float>::cos( mPhase[ i ] ) * mAmplitude[ i ];
+                mImag[ i ] = math<float>::sin( mPhase[ i ] ) * mAmplitude[ i ];
 			}
-#endif
             mCartesianUpdated = true;
             mCartesianNormalized = mPolarNormalized;
 
@@ -491,20 +399,11 @@ void Kiss::transform()
 
 		// Normalize values
         float mNormalizer = 2.0f / mWindowSum;
-#ifdef CINDER_MSW
-		Concurrency::parallel_for(0, mBinSize, [ = ]( int32_t i ) {
-#else
-		for ( int32_t i = 0; i < mBinSize; i++ ) {
-#endif
+		for ( int32_t i = 0; i < mBinSize; ++i ) {
             mReal[ i ] *= mNormalizer;
             mImag[ i ] *= mNormalizer;
-#ifdef CINDER_MSW
-		} );
-#else
 		}
-#endif
         mCartesianNormalized = true;
 
     }
-
 }

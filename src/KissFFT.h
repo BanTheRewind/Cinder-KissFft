@@ -76,22 +76,22 @@ public:
 	void			stop();
 
 	// Convenience method for shutting off filter
-	void			removeFilter() { setFilter( 0.0f, Filter::NONE ); }
+	void			removeFilter();
 
 	// Setters
-	void			setData( float * data );
+	void			setData( float *data );
 	void			setDataSize( int32_t dataSize );
 	void			setFilter( float lowFrequency, float highFrequency );
 	void			setFilter( float frequency, int32_t filter = Filter::LOW_PASS );
 
 	// Getters
-	float *			getAmplitude();
+	float*			getAmplitude();
 	int32_t			getBinSize() { return mBinSize; }
-	float *			getData();
+	float*			getData();
 	int32_t			getDataSize() { return mDataSize; }
-	float *			getImaginary();
-	float *			getPhase();
-	float *			getReal();
+	float*			getImaginary();
+	float*			getPhase();
+	float*			getReal();
 
 private:
 
@@ -104,14 +104,14 @@ private:
 	void			dispose();
 
 	// Arrays
-	float *			mAmplitude;
-	float *			mData;
-	float *			mImag;
-	float *			mInverseWindow;
-	float *			mPhase;
-	float *			mReal;
-	float *			mWindow;
-	float *			mWindowedData;
+	float			*mAmplitude;
+	float			*mData;
+	float			*mImag;
+	float			*mInverseWindow;
+	float			*mPhase;
+	float			*mReal;
+	float			*mWindow;
+	float			*mWindowedData;
 
 	// Dimensions
 	int32_t			mBinSize;
@@ -133,8 +133,8 @@ private:
 	void			cartesianToPolar();
 
 	// KissFFT
-	kiss_fft_cpx *	mCxIn;
-	kiss_fft_cpx *	mCxOut;
+	kiss_fft_cpx	*mCxIn;
+	kiss_fft_cpx	*mCxOut;
 	kiss_fftr_cfg	mFftCfg;
 	kiss_fftr_cfg	mIfftCfg;
 
