@@ -37,13 +37,8 @@
 #pragma once
 
 // Includes
-#include "cinder/Cinder.h"
 #include "cinder/CinderMath.h"
 #include "kiss/kiss_fftr.h"
-#ifdef CINDER_MSW
-	// Most routines run parallelized on Windows
-	#include "ppl.h"
-#endif
 
 // Alias for pointer to Kiss instance
 typedef std::shared_ptr<class Kiss> KissRef;
