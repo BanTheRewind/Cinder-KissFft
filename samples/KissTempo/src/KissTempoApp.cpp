@@ -98,9 +98,9 @@ private:
 
 	// Data
 	int32_t						mDataSize;
-	float *						mInputData;
+	float						*mInputData;
 	int32_t						mInputSize;
-	float *						mTimeData;
+	float						*mTimeData;
 
 	// Tempo information
 	int32_t						mFirstPeak;
@@ -126,7 +126,6 @@ using namespace std;
 // Draw
 void KissTempoApp::draw()
 {
-
 	// Clear screen
 	gl::clear( ColorAf::black() );
 
@@ -134,8 +133,8 @@ void KissTempoApp::draw()
 	if ( mDataSize > 0 && mWaveform.size() > 0 ) {
 
 		// Get dimensions
-		float windowWidth = (float)getWindowWidth();
-		float center = windowWidth * 0.5f;
+		float windowWidth	= (float)getWindowWidth();
+		float center		= windowWidth * 0.5f;
 
 		// Draw waveform
 		float y = 0.0f;
@@ -157,13 +156,11 @@ void KissTempoApp::draw()
 	gl::scale( 0.5f, 0.5f );
 	mFont->drawString( "Press SPACE to reset track", Vec2f( 20.0f * 8.0f, 575.0f * 8.0f ) );
 	gl::popMatrices();
-
 }
 
 // Handles key press
 void KissTempoApp::keyDown( KeyEvent event )
 {
-
 	// Press ESC to quit or "SPACE" to switch tracks
 	switch ( event.getCode() ) {
 	case KeyEvent::KEY_ESCAPE:
@@ -173,13 +170,11 @@ void KissTempoApp::keyDown( KeyEvent event )
 		playTrack();
 		break;
 	}
-
 }
 
 // Play the track
 void KissTempoApp::playTrack()
 {
-
 	// Stop current track
 	if ( mTrack ) {
 		mTrack->enablePcmBuffering( false );
@@ -188,23 +183,21 @@ void KissTempoApp::playTrack()
 	}
 
 	// Reset values
-	mFirstPeak = -1;
-	mNeighbors = DEFAULT_NEIGHBOR_COUNT;
-	mPeakDistances.clear();
+	mFirstPeak		= -1;
+	mNeighbors		= DEFAULT_NEIGHBOR_COUNT;
 	mSampleDistance = 0;
-	mTempo = 0.0f;
+	mTempo			= 0.0f;
+	mPeakDistances.clear();
 
 	// Play track
 	mTrack = audio::Output::addTrack( audio::load( loadResource( RES_SAMPLE ) ), false );
 	mTrack->enablePcmBuffering( true );
 	mTrack->play();
-
 }
 
 // Set up
 void KissTempoApp::setup()
 {
-
 	// Set up window
 	setFrameRate( 60.0f );
 	setWindowSize( 600, 600 );
@@ -217,40 +210,35 @@ void KissTempoApp::setup()
 	gl::color( ColorAf::white() );
 
 	// Define properties
-	mDataSize = 0;
-	mFirstPeak = -1;
-	mInputSize = 0;
-	mNeighbors = DEFAULT_NEIGHBOR_COUNT;
-	mPeakDistances.clear();
+	mDataSize		= 0;
+	mFirstPeak		= -1;
+	mInputSize		= 0;
+	mNeighbors		= DEFAULT_NEIGHBOR_COUNT;
 	mSampleDistance = 0;
-	mTempo = 0.0f;
-	mThreshold = 0.1f;
+	mTempo			= 0.0f;
+	mThreshold		= 0.1f;
 
 	// Load font
 	mFont = gl::TextureFont::create( Font( loadResource( RES_FONT ), 96.0f ) );
 
 	// Load sample
 	playTrack();
-
 }
 
 // Called on exit
 void KissTempoApp::shutdown() 
 {
-
 	// Stop track
 	mTrack->enablePcmBuffering( false );
 	mTrack->stop();
 	if ( mFft ) {
 		mFft->stop();
 	}
-
 }
 
 // Runs update logic
 void KissTempoApp::update() 
 {
-
 	// Don't evaluate right away or unrealistically 
 	// high numbers will pop up
 	if ( getElapsedSeconds() < 0.5 ) {
@@ -298,8 +286,8 @@ void KissTempoApp::update()
 						if ( mTimeData[ i ] >= mThreshold ) {
 
 							// Determine neighbor range
-							int32_t start = math<int32_t>::max( i - mNeighbors, 0 );
-							int32_t end = math<int32_t>::min( i + mNeighbors, mDataSize - 1 );
+							int32_t start	= math<int32_t>::max( i - mNeighbors, 0 );
+							int32_t end		= math<int32_t>::min( i + mNeighbors, mDataSize - 1 );
 
 							// Compare this value with neighbors to find peak
 							bool peak = true;
@@ -372,7 +360,6 @@ void KissTempoApp::update()
 		}
 
 	}
-
 }
 
 // Start application

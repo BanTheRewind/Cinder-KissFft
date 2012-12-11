@@ -56,7 +56,7 @@ public:
 	void	mouseMove( ci::app::MouseEvent event );
 	void	setup();
 	void	shutdown();
-	void	sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, ci::audio::Buffer32f * ioBuffer );
+	void	sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, ci::audio::Buffer32f *ioBuffer );
 
 private:
 
@@ -108,9 +108,9 @@ void KissBasicApp::draw()
 		for ( int32_t i = 0; i < dataSize; i++ ) {
 
 			// Do logarithmic plotting for frequency domain
-			float logSize = math<float>::log( dataSizef );
-			float x = (float)( (math<float>::log( (float)i) / logSize ) * dataSizef );
-			float y = math<float>::clamp( freqData[i] * ( x / dataSizef ) * ( math<float>::log( ( dataSizef - (float)i ) ) ), 0.0f, 2.0f );
+			float logSize	= math<float>::log( dataSizef );
+			float x			= (float)( (math<float>::log( (float)i) / logSize ) * dataSizef );
+			float y			= math<float>::clamp( freqData[i] * ( x / dataSizef ) * ( math<float>::log( ( dataSizef - (float)i ) ) ), 0.0f, 2.0f );
 
 			// Plot points on lines for tme domain
 			freqLine.push_back( Vec2f(        x * scale + 10.0f,          -y   * ( windowHeight - 20.0f ) * 0.25f + ( windowHeight - 10.0f ) ) );
@@ -127,24 +127,21 @@ void KissBasicApp::draw()
 }
 
 // Handles mouse movement
-void KissBasicApp::mouseMove(MouseEvent event)
+void KissBasicApp::mouseMove( MouseEvent event )
 {
-
 	// Change frequency and amplitude based on mouse position
 	// Scale everything logarithmically to get a better feel and sound
-	mAmplitude = 1.0f - event.getY() / (float)getWindowHeight();
-	double width = (double)getWindowWidth();
-	double x = width - (double)event.getX();
-	float mPosition = (float)( ( log( width ) - log( x ) ) / log( width ) );
-	mFreqTarget = math<float>::clamp( mMaxFreq * mPosition, mMinFreq, mMaxFreq );
-	mAmplitude = math<float>::clamp( mAmplitude * ( 1.0f - mPosition ), 0.05f, 1.0f );
-
+	mAmplitude		= 1.0f - event.getY() / (float)getWindowHeight();
+	double width	= (double)getWindowWidth();
+	double x		= width - (double)event.getX();
+	float mPosition	= (float)( ( log( width ) - log( x ) ) / log( width ) );
+	mFreqTarget		= math<float>::clamp( mMaxFreq * mPosition, mMinFreq, mMaxFreq );
+	mAmplitude		= math<float>::clamp( mAmplitude * ( 1.0f - mPosition ), 0.05f, 1.0f );
 }
 
 // Set up
 void KissBasicApp::setup()
 {
-
 	// Set up window
 	setFrameRate( 60.0f );
 	setWindowSize( 600, 600 );
@@ -155,16 +152,15 @@ void KissBasicApp::setup()
 	gl::color( ColorAf::white() );
 
 	// Set synth properties
-	mAmplitude = 0.5f;
-	mMaxFreq = 20000.0f;
-	mMinFreq = 1.0f;
-	mFreqTarget = 0.0f;
-	mPhase = 0.0f;
-	mPhaseAdjust = 0.0f;
+	mAmplitude		= 0.5f;
+	mMaxFreq		= 20000.0f;
+	mMinFreq		= 1.0f;
+	mFreqTarget		= 0.0f;
+	mPhase			= 0.0f;
+	mPhaseAdjust	= 0.0f;
 	
 	// Play sine
-	audio::Output::play( audio::createCallback( this, & KissBasicApp::sineWave ) );
-
+	audio::Output::play( audio::createCallback( this, &KissBasicApp::sineWave ) );
 }
 
 // Called on exit
@@ -176,15 +172,15 @@ void KissBasicApp::shutdown()
 }
 
 // Creates sine wave
-void KissBasicApp::sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, audio::Buffer32f * ioBuffer ) 
+void KissBasicApp::sineWave( uint64_t inSampleOffset, uint32_t ioSampleCount, audio::Buffer32f *ioBuffer ) 
 {
 
 	// Fill buffer with sine wave
 	mPhaseAdjust = mPhaseAdjust * 0.95f + ( mFreqTarget / 44100.0f ) * 0.05f;
 	for ( uint32_t i = 0; i < ioSampleCount; i++ ) {
-		mPhase += mPhaseAdjust;
-		mPhase = mPhase - math<float>::floor( mPhase );
-		float val = math<float>::sin( mPhase * 2.0f * (float)M_PI ) * mAmplitude;	
+		mPhase		+= mPhaseAdjust;
+		mPhase		= mPhase - math<float>::floor( mPhase );
+		float val	= math<float>::sin( mPhase * 2.0f * (float)M_PI ) * mAmplitude;
 		ioBuffer->mData[ i * ioBuffer->mNumberChannels ] = val;
 		ioBuffer->mData[ i * ioBuffer->mNumberChannels + 1 ] = val;
 	}

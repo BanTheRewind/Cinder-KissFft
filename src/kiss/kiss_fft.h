@@ -5,11 +5,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
-#ifdef CINDER_MSW
-    #include <malloc.h>
-#else
-    #include <stdlib.h>
-#endif
 
 #ifdef __cplusplus
 extern "C" {

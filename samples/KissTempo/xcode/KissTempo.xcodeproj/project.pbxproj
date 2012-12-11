@@ -16,13 +16,11 @@
 		43DFF4EE14F21C96004759F2 /* Copy1066.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43DFF4EC14F21C96004759F2 /* Copy1066.ttf */; };
 		43DFF4EF14F21C96004759F2 /* lgo_machismo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */; };
 		43DFF4F114F21C9D004759F2 /* KissTempoApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */; };
-		43DFF4F414F21CAB004759F2 /* KissFFT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F214F21CAB004759F2 /* KissFFT.cpp */; };
-		43DFF4FA14F21CB3004759F2 /* kiss_fft.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F614F21CB3004759F2 /* kiss_fft.c */; };
-		43DFF4FB14F21CB3004759F2 /* kiss_fftr.c in Sources */ = {isa = PBXBuildFile; fileRef = 43DFF4F814F21CB3004759F2 /* kiss_fftr.c */; };
 		5323E6B20EAFCA74003A9687 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B10EAFCA74003A9687 /* CoreVideo.framework */; };
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		AEF69B551677E03600C0752C /* CinderApp.icns in Resources */ = {isa = PBXBuildFile; fileRef = AEF69B541677E03600C0752C /* CinderApp.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,18 +39,12 @@
 		43DFF4EC14F21C96004759F2 /* Copy1066.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Copy1066.ttf; path = ../resources/Copy1066.ttf; sourceTree = "<group>"; };
 		43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = lgo_machismo.mp3; path = ../resources/lgo_machismo.mp3; sourceTree = "<group>"; };
 		43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissTempoApp.cpp; path = ../src/KissTempoApp.cpp; sourceTree = "<group>"; };
-		43DFF4F214F21CAB004759F2 /* KissFFT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = KissFFT.cpp; path = ../../../src/KissFFT.cpp; sourceTree = "<group>"; };
-		43DFF4F314F21CAB004759F2 /* KissFFT.h */ = {isa = PBXFileReference; fileEncoding = 4; name = KissFFT.h; path = ../../../src/KissFFT.h; sourceTree = "<group>"; };
-		43DFF4F514F21CB3004759F2 /* _kiss_fft_guts.h */ = {isa = PBXFileReference; fileEncoding = 4; name = _kiss_fft_guts.h; path = ../../../src/kiss/_kiss_fft_guts.h; sourceTree = "<group>"; };
-		43DFF4F614F21CB3004759F2 /* kiss_fft.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fft.c; path = ../../../src/kiss/kiss_fft.c; sourceTree = "<group>"; };
-		43DFF4F714F21CB3004759F2 /* kiss_fft.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fft.h; path = ../../../src/kiss/kiss_fft.h; sourceTree = "<group>"; };
-		43DFF4F814F21CB3004759F2 /* kiss_fftr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kiss_fftr.c; path = ../../../src/kiss/kiss_fftr.c; sourceTree = "<group>"; };
-		43DFF4F914F21CB3004759F2 /* kiss_fftr.h */ = {isa = PBXFileReference; fileEncoding = 4; name = kiss_fftr.h; path = ../../../src/kiss/kiss_fftr.h; sourceTree = "<group>"; };
 		5323E6B10EAFCA74003A9687 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* KissTempo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KissTempo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEF69B541677E03600C0752C /* CinderApp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = CinderApp.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,21 +68,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0026CD271197C285007D86C6 /* KissFFT */ = {
-			isa = PBXGroup;
-			children = (
-				43DFF4F214F21CAB004759F2 /* KissFFT.cpp */,
-				43DFF4F314F21CAB004759F2 /* KissFFT.h */,
-				432CD3CD14E740DD00603749 /* kiss */,
-			);
-			name = KissFFT;
-			sourceTree = "<group>";
-		};
 		080E96DDFE201D6D7F000001 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				43DFF4F014F21C9D004759F2 /* KissTempoApp.cpp */,
-				0026CD271197C285007D86C6 /* KissFFT */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -154,6 +135,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				AEF69B541677E03600C0752C /* CinderApp.icns */,
 				43DFF4EC14F21C96004759F2 /* Copy1066.ttf */,
 				43DFF4ED14F21C96004759F2 /* lgo_machismo.mp3 */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -168,18 +150,6 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		432CD3CD14E740DD00603749 /* kiss */ = {
-			isa = PBXGroup;
-			children = (
-				43DFF4F514F21CB3004759F2 /* _kiss_fft_guts.h */,
-				43DFF4F614F21CB3004759F2 /* kiss_fft.c */,
-				43DFF4F714F21CB3004759F2 /* kiss_fft.h */,
-				43DFF4F814F21CB3004759F2 /* kiss_fftr.c */,
-				43DFF4F914F21CB3004759F2 /* kiss_fftr.h */,
-			);
-			name = kiss;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +204,7 @@
 			files = (
 				43DFF4EE14F21C96004759F2 /* Copy1066.ttf in Resources */,
 				43DFF4EF14F21C96004759F2 /* lgo_machismo.mp3 in Resources */,
+				AEF69B551677E03600C0752C /* CinderApp.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,9 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				43DFF4F114F21C9D004759F2 /* KissTempoApp.cpp in Sources */,
-				43DFF4F414F21CAB004759F2 /* KissFFT.cpp in Sources */,
-				43DFF4FA14F21CB3004759F2 /* kiss_fft.c in Sources */,
-				43DFF4FB14F21CB3004759F2 /* kiss_fftr.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,9 +235,11 @@
 				GCC_PREFIX_HEADER = KissTempo_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"$(CINDER_PATH)/lib/libcinder_d.a",
 					"-lcurl",
+					../../../lib/macosx/KissFFT_d.a,
 				);
 				PRODUCT_NAME = KissTempo;
 				SDKROOT = macosx;
@@ -292,9 +262,11 @@
 				GCC_UNROLL_LOOPS = NO;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_LDFLAGS = (
 					"$(CINDER_PATH)/lib/libcinder.a",
 					"-lcurl",
+					../../../lib/macosx/KissFFT.a,
 				);
 				PRODUCT_NAME = KissTempo;
 				SDKROOT = macosx;
@@ -314,7 +286,7 @@
 				HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost";
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include ../include";
+				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include ../include ../../../src";
 			};
 			name = Debug;
 		};
@@ -329,7 +301,7 @@
 				HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost";
 				PREBINDING = NO;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
-				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include ../include";
+				USER_HEADER_SEARCH_PATHS = "$(CINDER_PATH)/include ../include ../../../src";
 			};
 			name = Release;
 		};
